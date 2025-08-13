@@ -74,6 +74,16 @@ The tool would primarily be used by only the client organization. If scope is ex
 
 ## User Requirements
 
+For this exercise the primary user requirement is that the solution have a **simple user experience**.
+
+Based on this request, I will consider 5 factors of usability in solution selection:
+
+1. Effectiveness - Users can complete actions accurately
+2. Efficiency - Users can complete actions quickly
+3. Familiarity - Users do not break existing mental models when using the new solution
+4. Engagement / Ease of Use - Users find the solution appropriate for the problem at hand. Users can easily integrate the solution into existing workflows. 
+5. Error Tolerance - Users are presented with errors or help menus only when appropriate. The solution should validate inputs.
+
 ## Concept Generation
 
 ## Idea Organization
