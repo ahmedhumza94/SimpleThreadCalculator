@@ -1,5 +1,7 @@
 # Simple Thread Tech Assessment
 
+This document describes my engineering design process while attempting Simple Thread's tech assessment. Parts of this document may not be comprehensive due to time-constraints. In brief, I approach engineering problems starting from user or customer needs and work backwards towards a technological solution. 
+
 # Table of Contents
 
 1. [Observations about the problem](#observations-about-the-problem)
