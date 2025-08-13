@@ -59,6 +59,15 @@ Given a set of projects with their corresponding timelines and travel details th
 
 ## Literature and Product Review
 
+In this section, I would analyze the existing market of tools that can solve a problem. For this exercise I have summarized the benefits and risks of 4 solutions to the reimbursement problem.
+
+| Solution | Features | Benefits | Risks or Limitations |
+|----------|----------|----------|---------------------|
+| QuickBooks | Full accounting suite with payroll and invoicing capabilities. There is an API to access many functions of the software. | All your business data can live in a centralized hub. Can build tools that integrate with the QuickBooks API. Can create customized reports for different parts of your business. | Risks categorizing reimbursement income as an "expense". Each work day would need to be categorized correctly. |
+| Toggl | Single or team based time tracking with project-based invoicing and reports. | Available on most computing platforms and makes time tracking workflow simple. Can include per-deim and fixed-fee billable rates. | Primary limitation is that only a single billable rate can be assigned to a single project. Client would need to create multiple projects for each underlying reimbursement rate.<br><br>No way to treat multiple projects as a single set as per the client's requirements. |
+| Excel Spreadsheet | Versatile tool that can be customized to meet most daily analytical workflows | Can create a template worksheet that meets client reimbursement rules exactly. Excel has native support for datetime variables. | This would require the client to create complex formulas to ensure data accuracy.<br><br>There would need to be a separate sheet for each project set. |
+| Paper based calculation and record keeping | Paper based reimbursement calculation can be done by anyone with a limited technical background. | Legal and Regulatory Acceptance<br><br>No risk of digital data breach.<br><br>Standardized template can make for a very simple workflow | Manual calculations have to be verified for accuracy<br><br>Searching for previous records can be time-consuming.<br><br>Separate sheet for each project set |
+
 ## Target Customer
 
 ## User Requirements
