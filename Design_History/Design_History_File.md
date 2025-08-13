@@ -70,6 +70,8 @@ In this section, I would analyze the existing market of tools that can solve a p
 
 ## Target Customer
 
+The tool would primarily be used by only the client organization. If scope is expanded to include handling any specialized reimbursement workflow than the target market could include consultants, insurance enterprises, and general contractors.
+
 ## User Requirements
 
 ## Concept Generation
