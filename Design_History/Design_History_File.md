@@ -86,9 +86,51 @@ Based on this request, I will consider 5 factors of usability in solution select
 
 ## Concept Generation
 
+1. A command line utility
+2. A web app
+3. A react-native mobile app
+4. A native mobile app
+5. An electron desktop app
+6. A native desktop app
+7. Spreadsheet
+8. Paper notebook
+9. Automation or Extension (Zapier, QuickBooks extension, Apple Shortcut, etc.)
+
 ## Idea Organization
 
+Three categories of concepts:
+
+1. Template Based Solutions
+    - Spreadsheet
+    - Pape rNotebook
+
+This category of solutions emphasizes structuring the calculation workflow into a set of standardized manual steps.
+
+2. GUI Applications
+    - Web App
+    - React-native mobile app
+    - Native mobile app
+    - Electron desktop app
+    - Native desktop app
+
+This category of solutions emphasizes user engagement and familiarity by building on the mental model of other commonly used apps.
+
+3. Data Processing Utilities
+    - Command line utility
+    - Automation or extension
+
+This category of solutions emphasizes efficiency and effectiveness.
+
 ## Solution Selection
+
+For this exercise I will not use any quantitative method to rank concepts such as a Pugh Matrix. 
+
+I have chosen to develop a command line utility as the solution to this problem. I will do the following to maintain a simple user experience:
+
+- I will enforce structure on input data to derive most of the benefits of the Template Based Solutions described above.
+- I will follow established conventions of other command-line utilties to maintain familiarity.
+- I will choose a development environment that emphasizes performance and strict type-checking to maximize efficiency and effectiveness. For this exercise, I have chosen to use Swift to develop my command line utility.
+- I will optionally show the steps of the calculation to the user to maintain ease of use.
 
 ## Component Diagram
 
