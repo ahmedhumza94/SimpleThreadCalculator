@@ -9,6 +9,59 @@ import Foundation
 
 struct ProjectSequence {
     let projects: [Project]
+    
+    init(projects: [Project]) {
+        let sortedProjects = projects.sorted { $0.startDate < $1.startDate }
+        self.projects = sortedProjects
+    }
+    
+    var sequenceStartDate: Date? {
+        if projects.isEmpty {
+            return nil
+        }
+        return projects[0].startDate
+    }
+    
+    var sequenceEndDate: Date? {
+        if projects.isEmpty {
+            return nil
+        }
+        return projects[projects.count - 1].endDate
+    }
+    
+    var sequenceDates: Set<Date> {
+        guard let sequenceStartDate else { return [] }
+        guard let sequenceEndDate else { return [] }
+        
+        var allDates: Set<Date> = []
+        var currentDate = sequenceStartDate
+        while currentDate <= sequenceEndDate {
+            allDates.insert(currentDate)
+        }
+        return allDates
+    }
+    
+    var mapDateToCity: [Date: Project.CityType] {
+        let allDates = sequenceDates
+        if allDates.isEmpty {
+            return [:]
+        }
+        var map: [Date: Project.CityType] = [:]
+        for date in allDates {
+            for project in projects {
+                if date >= project.startDate && date <= project.endDate {
+                    if let value = map[date] {
+                        if value == .low && project.cityType == .high {
+                            map[date] = .high
+                        }
+                    } else {
+                        map[date] = project.cityType
+                    }
+                }
+            }
+        }
+        return map
+    }
 }
 
 class ReimbursementCalculator {
