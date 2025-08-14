@@ -132,7 +132,9 @@ I have chosen to develop a command line utility as the solution to this problem.
 - I will choose a development environment that emphasizes performance and strict type-checking to maximize efficiency and effectiveness. For this exercise, I have chosen to use Swift to develop my command line utility.
 - I will optionally show the steps of the calculation to the user to maintain ease of use.
 
-## Component Diagram
+## Command Line Utility Workflow
+
+![CLI Utility Workflow](ComponentDiagram.jpeg)
 
 ## Design Verification
 
