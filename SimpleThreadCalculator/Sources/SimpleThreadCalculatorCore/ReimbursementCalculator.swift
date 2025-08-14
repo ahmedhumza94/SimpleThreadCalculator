@@ -160,7 +160,6 @@ class ReimbursementCalculator {
 
         do {
             projectSets = try decoder.decode([ProjectSet].self, from: data)
-            guard let projectSets else { return }
         } catch DecodingError.dataCorrupted(let context) {
             // Check if it's a date format error
             if context.codingPath.contains(where: { key in
