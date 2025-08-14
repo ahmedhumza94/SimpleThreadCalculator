@@ -45,7 +45,7 @@ struct Project: Codable {
 
 }
 
-struct ProjectSet {
+struct ProjectSet: Codable {
     let id: Int
     let projects: [Project]
 }

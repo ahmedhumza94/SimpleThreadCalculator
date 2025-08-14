@@ -27,7 +27,9 @@ class ReimbursementCalculator {
             }
         }
     }
-
+    
+    var projectSets: [ProjectSet]! = nil
+    
     init(file: String) throws {
         guard let data = FileManager.default.contents(atPath: file) else {
             throw CalculatorError.fileNotFound(file)
@@ -39,9 +41,12 @@ class ReimbursementCalculator {
         decoder.dateDecodingStrategy = .formatted(dateFormatter)
 
         do {
-            let projects = try decoder.decode([Project].self, from: data)
-            for project in projects {
-                print("Project \(project.name) found in file")
+            projectSets = try decoder.decode([ProjectSet].self, from: data)
+            guard let projectSets else { return }
+            for set in projectSets {
+                for project in set.projects {
+                    print("Project \(project.name) found in file")
+                }
             }
         } catch DecodingError.dataCorrupted(let context) {
             // Check if it's a date format error
@@ -68,4 +73,6 @@ class ReimbursementCalculator {
             throw error
         }
     }
+    
+    
 }
