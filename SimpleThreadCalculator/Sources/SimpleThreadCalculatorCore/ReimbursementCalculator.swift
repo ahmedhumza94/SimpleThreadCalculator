@@ -7,8 +7,10 @@
 
 import Foundation
 
+//The ProjectSequence struct encapsulates a set of projects that overlap or are contiguous.
 struct ProjectSequence {
     
+    // Use enum to centralize rates and for code completion
     enum WorkdayRate: Int {
         case travelLow = 45
         case travelHigh = 55
@@ -16,9 +18,11 @@ struct ProjectSequence {
         case fullDayHigh = 85
     }
     
+    //Array of projects associated with the current sequence of projects.
     let projects: [Project]
     
     init(projects: [Project]) {
+        //Always sort projects in a sequence by dates
         let sortedProjects = projects.sorted { $0.startDate < $1.startDate }
         self.projects = sortedProjects
     }
@@ -38,6 +42,7 @@ struct ProjectSequence {
     }
     
     var sequenceDates: Array<Date> {
+        //Compute array of every date included in the sequence
         guard let sequenceStartDate else { return [] }
         guard let sequenceEndDate else { return [] }
         
@@ -51,6 +56,7 @@ struct ProjectSequence {
     }
     
     var mapDateToCity: [Date: Project.CityType] {
+        //Compute a dictionary mapping each date to a city type
         let allDates = sequenceDates
         if allDates.isEmpty {
             return [:]
@@ -60,6 +66,7 @@ struct ProjectSequence {
             for project in projects {
                 if date >= project.startDate && date <= project.endDate {
                     if let value = map[date] {
+                        //If a date is already mapped to a low cost of living city, but the current project is in a high cost of living city, High COL is prioritized.
                         if value == .low && project.cityType == .high {
                             map[date] = .high
                         }
@@ -73,6 +80,7 @@ struct ProjectSequence {
     }
     
     var mapeDateToRate: [Date: WorkdayRate] {
+        //Compute dictionary mapping each Date to a reimbursement rate
         let allDates = sequenceDates
         if allDates.isEmpty {
             return [:]
@@ -105,6 +113,7 @@ struct ProjectSequence {
     }
     
     var total: Int {
+        //Compute total by summing workday rates for each date in sequence
         var sum = 0
         for workdayRate in mapeDateToRate.values {
             sum = sum + workdayRate.rawValue
@@ -114,6 +123,8 @@ struct ProjectSequence {
 }
 
 class ReimbursementCalculator {
+    
+    //Custom error definition for import of JSON
     enum CalculatorError: Error, LocalizedError {
         case invalidDateFormat
         case invalidCityType(String)
@@ -134,6 +145,7 @@ class ReimbursementCalculator {
         }
     }
     
+    //Calculator can hold more than one set of projects defined in a JSON file
     var projectSets: [ProjectSet]! = nil
     
     init(file: String) throws {
@@ -185,10 +197,11 @@ class ReimbursementCalculator {
             for project in sortedProjects {
                 let lastProject = projectsInCurrentSequence.last!
                 let gap = Calendar.current.dateComponents([.day], from: lastProject.endDate, to: project.startDate).day ?? 0
+                // If The end date of the current sequence overlaps or is contiguous with the start date of the next project, add the project to the sequence.
                 if gap <= 1 {
                     projectsInCurrentSequence.append(project)
                 } else {
-                    //Gap exists
+                    //Gap exists -- current project should be in a separate sequence.
                     let projectSequence = ProjectSequence(projects: projectsInCurrentSequence)
                     projectSequences.append(projectSequence)
 

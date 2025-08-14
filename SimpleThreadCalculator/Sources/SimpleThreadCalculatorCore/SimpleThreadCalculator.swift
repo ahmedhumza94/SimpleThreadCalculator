@@ -13,7 +13,7 @@ public struct SimpleThreadCalculator: ParsableCommand {
     @Argument(help: "The input JSON file containing an array of projects and associated metadata")
     var file: String
     
-    @Flag(name: .shortAndLong, help: "Verbose output with calculation breakdown")
+    @Flag(name: .shortAndLong, help: "Verbose output with calculation breakdown by sequence")
     var verbose = false
 
     public init() { }

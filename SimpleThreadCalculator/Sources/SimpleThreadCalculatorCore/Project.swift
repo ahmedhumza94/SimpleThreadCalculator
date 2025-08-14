@@ -7,12 +7,15 @@
 
 import Foundation
 
+
+//Create a struct representing a project that is serializable
 struct Project: Codable {
     let name: String
     let cityType: CityType
     let startDate: Date
     let endDate: Date
     
+    //Use enum to type check City Type within JSON
     enum CityType: String, Codable {
         case low = "low"
         case high = "high"
@@ -44,6 +47,9 @@ struct Project: Codable {
     }
 
 }
+
+//A project set is an array of projects with an associated integer ID.
+//This is used to import multiple project sets within a JSON file
 
 struct ProjectSet: Codable {
     let id: Int
