@@ -138,12 +138,24 @@ I have chosen to develop a command line utility as the solution to this problem.
 
 ## Design Verification
 
+- [ ] Ensure input data is serializable into JSON.
+- [ ] Ensure utility has help menu
+- [ ] Ensure utility shows steps of reimbursement calculation
+- [ ] Ensure output is human-readable
+
 ## Design Validation
 
+- [ ] Implement unit tests verifying JSON import
+- [ ] Implement tests verifying calculation on example project sets
+
 ## Regulatory Aspects
+
+No audit or historical context requirements were part of this exercise.
 
 ## Project Abstract
 
 ## Executive Summary
 
 ## References
+
+No references.
