@@ -20,6 +20,10 @@ public struct SimpleThreadCalculator: ParsableCommand {
     public func run() throws {
         do {
             let calculator = try ReimbursementCalculator(file: file)
+            let sequences = calculator.findSequences()
+            for sequence in sequences {
+                print("Sequence: start date \(sequence.projects[0].startDate), end date \(sequence.projects[sequence.projects.count - 1].endDate)")
+            }
         } catch {
             throw error
         }

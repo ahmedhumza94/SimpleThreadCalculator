@@ -7,6 +7,10 @@
 
 import Foundation
 
+struct ProjectSequence {
+    let projects: [Project]
+}
+
 class ReimbursementCalculator {
     enum CalculatorError: Error, LocalizedError {
         case invalidDateFormat
@@ -74,5 +78,29 @@ class ReimbursementCalculator {
         }
     }
     
-    
+    func findSequences() -> [ProjectSequence] {
+        guard let projectSets else { return [] }
+        var projectSequences = [ProjectSequence]()
+        for set in projectSets {
+            let sortedProjects = set.projects.sorted { $0.startDate < $1.startDate }
+            var projectsInCurrentSequence = [sortedProjects[0]]
+            
+            for project in sortedProjects {
+                let lastProject = projectsInCurrentSequence.last!
+                let gap = Calendar.current.dateComponents([.day], from: lastProject.endDate, to: project.startDate).day ?? 0
+                
+                if gap <= 1 {
+                    projectsInCurrentSequence.append(project)
+                } else {
+                    //Gap exists
+                    let projectSequence = ProjectSequence(projects: projectsInCurrentSequence)
+                    projectSequences.append(projectSequence)
+                }
+            }
+            
+            projectSequences.append(ProjectSequence(projects: projectsInCurrentSequence))
+        }
+        return projectSequences
+    }
+
 }
