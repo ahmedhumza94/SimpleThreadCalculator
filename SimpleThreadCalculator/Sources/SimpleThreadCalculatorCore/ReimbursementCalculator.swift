@@ -190,13 +190,14 @@ class ReimbursementCalculator {
             for project in sortedProjects {
                 let lastProject = projectsInCurrentSequence.last!
                 let gap = Calendar.current.dateComponents([.day], from: lastProject.endDate, to: project.startDate).day ?? 0
-                
                 if gap <= 1 {
                     projectsInCurrentSequence.append(project)
                 } else {
                     //Gap exists
                     let projectSequence = ProjectSequence(projects: projectsInCurrentSequence)
                     projectSequences.append(projectSequence)
+
+                    projectsInCurrentSequence = [project]
                 }
             }
             
