@@ -145,8 +145,8 @@ I have chosen to develop a command line utility as the solution to this problem.
 
 ## Design Validation
 
-- [ ] Implement unit tests verifying JSON import
-- [ ] Implement tests verifying calculation on example project sets
+- [X] Implement unit tests verifying JSON import
+- [X] Implement tests verifying calculation on example project sets
 
 ## Regulatory Aspects
 
@@ -154,7 +154,11 @@ No audit or historical context requirements were part of this exercise.
 
 ## Project Abstract
 
+This project solves a client organization's reimbursement calculation needs through a command-line utility written in Swift. The utility is able to excel in the five aspects of usability considered as part of creating a simple user experience.
+
 ## Executive Summary
+
+No summary provided for this assessment.
 
 ## References
 
