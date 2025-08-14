@@ -17,18 +17,20 @@ public struct SimpleThreadCalculator: ParsableCommand {
     var verbose = false
 
     public init() { }
+    
     public func run() throws {
         do {
             let calculator = try ReimbursementCalculator(file: file)
             let sequences = calculator.findSequences()
-            for sequence in sequences {
-                print("Sequence: start date \(sequence.projects[0].startDate), end date \(sequence.projects[sequence.projects.count - 1].endDate)")
-            }
             var grandTotal = 0
             for sequence in sequences {
+                if verbose {
+                    print("Sequence: start date \(sequence.projects[0].startDate.formatted(date: .long, time: .omitted)), end date \(sequence.projects[sequence.projects.count - 1].endDate.formatted(date: .long, time: .omitted))")
+                    print("Sequence Total: \(sequence.total)")
+                }
                 grandTotal += sequence.total
             }
-            print("Grand Total Reimbursement: \(grandTotal)")
+            print("Grand Reimbursement Total: \(grandTotal)")
         } catch {
             throw error
         }

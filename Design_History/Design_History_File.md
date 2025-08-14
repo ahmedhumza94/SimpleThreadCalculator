@@ -138,10 +138,10 @@ I have chosen to develop a command line utility as the solution to this problem.
 
 ## Design Verification
 
-- [ ] Ensure input data is serializable into JSON.
-- [ ] Ensure utility has help menu
-- [ ] Ensure utility shows steps of reimbursement calculation
-- [ ] Ensure output is human-readable
+- [X] Ensure input data is serializable into JSON.
+- [X] Ensure utility has help menu
+- [X] Ensure utility shows steps of reimbursement calculation
+- [X] Ensure output is human-readable
 
 ## Design Validation
 

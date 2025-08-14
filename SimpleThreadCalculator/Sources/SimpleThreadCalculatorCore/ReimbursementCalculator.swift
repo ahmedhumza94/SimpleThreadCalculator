@@ -149,11 +149,6 @@ class ReimbursementCalculator {
         do {
             projectSets = try decoder.decode([ProjectSet].self, from: data)
             guard let projectSets else { return }
-            for set in projectSets {
-                for project in set.projects {
-                    print("Project \(project.name) found in file")
-                }
-            }
         } catch DecodingError.dataCorrupted(let context) {
             // Check if it's a date format error
             if context.codingPath.contains(where: { key in

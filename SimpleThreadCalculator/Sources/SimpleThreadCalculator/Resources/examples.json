@@ -1,0 +1,88 @@
+[
+    {
+        "id": 0,
+        "projects": [
+            {
+                "name": "Set 0:0",
+                "city_type": "low",
+                "start_date": "10/1/24",
+                "end_date": "10/4/24"
+            }
+        ]
+    },
+    {
+        "id": 1,
+        "projects": [
+            {
+                "name": "Set 1:0",
+                "city_type": "low",
+                "start_date": "10/1/24",
+                "end_date": "10/1/24"
+            },
+            {
+                "name": "Set 1:1",
+                "city_type": "high",
+                "start_date": "10/2/24",
+                "end_date": "10/6/24"
+            },
+            {
+                "name": "Set 1:2",
+                "city_type": "low",
+                "start_date": "10/6/24",
+                "end_date": "10/9/24"
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "projects": [
+            {
+                "name": "Set 1:0",
+                "city_type": "low",
+                "start_date": "9/30/24",
+                "end_date": "10/3/24"
+            },
+            {
+                "name": "Set 1:1",
+                "city_type": "high",
+                "start_date": "10/5/24",
+                "end_date": "10/7/24"
+            },
+            {
+                "name": "Set 1:2",
+                "city_type": "high",
+                "start_date": "10/8/24",
+                "end_date": "10/8/24"
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "projects": [
+            {
+                "name": "Set 3:0",
+                "city_type": "low",
+                "start_date": "10/1/24",
+                "end_date": "10/1/24"
+            },
+            {
+                "name": "Set 3:1",
+                "city_type": "low",
+                "start_date": "10/1/24",
+                "end_date": "10/1/24"
+            },
+            {
+                "name": "Set 3:2",
+                "city_type": "high",
+                "start_date": "10/2/24",
+                "end_date": "10/3/24"
+            },
+            {
+                "name": "Set 3:2",
+                "city_type": "high",
+                "start_date": "10/2/24",
+                "end_date": "10/6/24"
+            }
+        ]
+    }
+]

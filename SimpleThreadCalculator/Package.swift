@@ -5,6 +5,9 @@ import PackageDescription
 
 let package = Package(
     name: "SimpleThreadCalculator",
+    platforms: [
+        .macOS(.v12)
+    ],
     dependencies: [
         .package(url: "https://github.com/apple/swift-argument-parser", from: "1.3.0")
     ],
@@ -13,7 +16,10 @@ let package = Package(
         // Targets can depend on other targets in this package and products from dependencies.
         .executableTarget(
             name: "SimpleThreadCalculator",
-            dependencies: ["SimpleThreadCalculatorCore"]
+            dependencies: ["SimpleThreadCalculatorCore"],
+            resources: [
+                .process("Resources")
+            ]
         ),
         .target(name: "SimpleThreadCalculatorCore", 
                 dependencies: [.product(name: "ArgumentParser", package: "swift-argument-parser")]),
