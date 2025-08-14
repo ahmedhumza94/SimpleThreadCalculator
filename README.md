@@ -37,6 +37,8 @@ Then in a new terminal run as
 SimpleThreadCalculator /path/to/file.json --verbose
 ```
 
+You can find an example JSON file with the sample data in SimpleThreadCalculator/Sources/SimpleThreadCalculator/Resources/examples.json
+
 ## Running Tests
 
 To run the test suite run the following from the root package directory
