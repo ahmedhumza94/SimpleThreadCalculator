@@ -24,6 +24,11 @@ public struct SimpleThreadCalculator: ParsableCommand {
             for sequence in sequences {
                 print("Sequence: start date \(sequence.projects[0].startDate), end date \(sequence.projects[sequence.projects.count - 1].endDate)")
             }
+            var grandTotal = 0
+            for sequence in sequences {
+                grandTotal += sequence.total
+            }
+            print("Grand Total Reimbursement: \(grandTotal)")
         } catch {
             throw error
         }

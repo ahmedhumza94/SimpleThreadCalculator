@@ -8,6 +8,14 @@
 import Foundation
 
 struct ProjectSequence {
+    
+    enum WorkdayRate: Int {
+        case travelLow = 45
+        case travelHigh = 55
+        case fullDayLow = 75
+        case fullDayHigh = 85
+    }
+    
     let projects: [Project]
     
     init(projects: [Project]) {
@@ -29,14 +37,15 @@ struct ProjectSequence {
         return projects[projects.count - 1].endDate
     }
     
-    var sequenceDates: Set<Date> {
+    var sequenceDates: Array<Date> {
         guard let sequenceStartDate else { return [] }
         guard let sequenceEndDate else { return [] }
         
-        var allDates: Set<Date> = []
+        var allDates: Array<Date> = []
         var currentDate = sequenceStartDate
         while currentDate <= sequenceEndDate {
-            allDates.insert(currentDate)
+            allDates.append(currentDate)
+            currentDate = Calendar.current.date(byAdding: .day, value: 1, to: currentDate)!
         }
         return allDates
     }
@@ -61,6 +70,46 @@ struct ProjectSequence {
             }
         }
         return map
+    }
+    
+    var mapeDateToRate: [Date: WorkdayRate] {
+        let allDates = sequenceDates
+        if allDates.isEmpty {
+            return [:]
+        }
+        let cityTypeMap = mapDateToCity
+        var map: [Date: WorkdayRate] = [:]
+        for date in allDates {
+            let city = cityTypeMap[date]
+            if date == allDates[0] || date == allDates[allDates.count - 1] {
+                switch city {
+                case .low:
+                    map[date] = .travelLow
+                case .high:
+                    map[date] = .travelHigh
+                default:
+                    break
+                }
+            } else {
+                switch city {
+                case .low:
+                    map[date] = .fullDayLow
+                case .high:
+                    map[date] = .fullDayHigh
+                default:
+                    break
+                }
+            }
+        }
+        return map
+    }
+    
+    var total: Int {
+        var sum = 0
+        for workdayRate in mapeDateToRate.values {
+            sum = sum + workdayRate.rawValue
+        }
+        return sum
     }
 }
 
