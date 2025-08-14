@@ -15,7 +15,7 @@ git clone https://github.com/ahmedhumza94/SimpleThreadCalculator.git
 Then enter the Package folder
 
 ```
-cd SimpleThreadCalculator
+cd SimpleThreadCalculator/SimpleThreadCalculator
 ```
 
 To build for installation from the Terminal
